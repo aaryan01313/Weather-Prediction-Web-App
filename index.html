@@ -242,7 +242,7 @@
   </main>
 
   <script>
-    const API_URL = 'http://127.0.0.1:5000/predict';
+    const API_URL = 'https://weather-prediction-web-app-8e4m.onrender.com/predict';
 
     const FIELD_KEYS = [
       'wind_kph',
@@ -365,7 +365,7 @@
       } catch (err) {
         const msg = err.message || 'Something went wrong.';
         if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) {
-          showError('Could not reach the API. Start the Flask server with python app.py and try again.');
+          showError('Please wait, the server is waking up...');
         } else {
           showError(msg);
         }
