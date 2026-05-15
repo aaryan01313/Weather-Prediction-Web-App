@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import pickle
+import joblib
 import pandas as pd
 import numpy as np
 
@@ -9,12 +9,9 @@ CORS(app)
 
 #Load Models and Scaler
 print("Loading models and scaler...")
-with open('weather_xgb_model.pkl', 'rb') as f:
-    xgb_model = pickle.load(f)
-with open('weather_rf_model.pkl', 'rb') as f:
-    rf_model = pickle.load(f)
-with open('weather_scaler.pkl', 'rb') as f:
-    scaler = pickle.load(f)
+xgb_model = joblib.load('weather_xgb_model.pkl')
+rf_model = joblib.load('weather_rf_model.pkl')
+scaler = joblib.load('weather_scaler.pkl')
 print("Everything loaded successfully!")
 
 @app.route('/')
